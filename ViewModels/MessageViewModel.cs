@@ -74,6 +74,5 @@ namespace MailTools.ViewModels
                 OnPropertyChanged("IsHtmlBody");
             }
         }
-
     }
 }
