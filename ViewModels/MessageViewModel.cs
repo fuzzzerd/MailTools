@@ -8,8 +8,8 @@ namespace MailTools.ViewModels
 {
     public class MessageViewModel: ViewModelBase
     {
-        private ObservableCollection<string> _toAddresses;
-        public ObservableCollection<String> ToAddresses
+        private string _toAddresses;
+        public String ToAddresses
         {
             get { return _toAddresses; }
             set
@@ -19,8 +19,8 @@ namespace MailTools.ViewModels
             }
         }
 
-        private ObservableCollection<string> _ccAddresses;
-        public ObservableCollection<String> CarbonCopyAddresses
+        private string _ccAddresses;
+        public String CarbonCopyAddresses
         {
             get { return _ccAddresses; }
             set
@@ -30,8 +30,8 @@ namespace MailTools.ViewModels
             }
         }
 
-        private ObservableCollection<string> _bccAddresses;
-        public ObservableCollection<String> BlindCarbonCopyAddresses
+        private string _bccAddresses;
+        public String BlindCarbonCopyAddresses
         {
             get { return _bccAddresses; }
             set
