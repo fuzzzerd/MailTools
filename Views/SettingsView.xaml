@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="196" d:DesignWidth="200">
-    <Grid DataContext="{Binding}" Margin="4">
+    <Grid DataContext="{Binding}">
         <Grid.RowDefinitions>
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
