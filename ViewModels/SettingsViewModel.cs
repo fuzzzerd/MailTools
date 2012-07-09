@@ -62,5 +62,27 @@ namespace MailTools.ViewModels
                 OnPropertyChanged("ReplyAddress");
             }
         }
+
+        private string _username;
+        public String Username
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged("Username");
+            }
+        }
+
+        private string _password;
+        public String Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged("Password");
+            }
+        }
     }
 }

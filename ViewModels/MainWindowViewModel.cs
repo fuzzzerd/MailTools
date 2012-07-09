@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Input;
 
@@ -38,7 +39,12 @@ namespace MailTools.ViewModels
             set { _log = value; OnPropertyChanged("Log"); }
         }
 
-        public MainWindowViewModel() { Log = new ObservableCollection<string>(); }
+        public MainWindowViewModel()
+        {
+            SettingsVM = new SettingsViewModel();
+            MessageVM = new MessageViewModel();
+            Log = new ObservableCollection<string>(); 
+        }
 
         public ICommand SendMessage
         {
@@ -51,6 +57,11 @@ namespace MailTools.ViewModels
             {
                 var smtp = new System.Net.Mail.SmtpClient(SettingsVM.SmtpServer, SettingsVM.SmtpPort);
                 smtp.EnableSsl = SettingsVM.UseSsl;
+
+                if (!(String.IsNullOrEmpty(SettingsVM.Username) && String.IsNullOrEmpty(SettingsVM.Password)))
+                {
+                    smtp.Credentials = new NetworkCredential(SettingsVM.Username, SettingsVM.Password);
+                }
 
                 var mm = new System.Net.Mail.MailMessage(SettingsVM.FromAddress, MessageVM.ToAddresses, MessageVM.Subject, MessageVM.Body);
                 mm.IsBodyHtml = MessageVM.IsHtmlBody;
