@@ -16,7 +16,8 @@
         </Grid.ColumnDefinitions>
          
         <views:SettingsView 
-            Grid.Row="0" Grid.Column="0"
+            Grid.Row="0" 
+            Grid.Column="0"
             DataContext="{Binding SettingsVM}" />
         
         <views:MessageView 
@@ -25,7 +26,8 @@
             DataContext="{Binding MessageVM}" />
         
         <Grid
-            Grid.Row="1" Grid.ColumnSpan="2"
+            Grid.Row="1" 
+            Grid.ColumnSpan="2"
             Margin="4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
@@ -37,6 +39,13 @@
             
         </Grid>
         
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="4" Content="Send" Command="{Binding SendMessage}" Width="50" HorizontalAlignment="Right" />
+        <Button 
+            Grid.Row="2" 
+            Grid.ColumnSpan="2" 
+            Margin="4" 
+            Content="Send" 
+            Command="{Binding SendMessage}"
+            Width="50" 
+            HorizontalAlignment="Right" />
     </Grid>
 </Window>
