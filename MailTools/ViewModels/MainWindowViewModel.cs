@@ -56,6 +56,7 @@ namespace MailTools.ViewModels
             try
             {
                 var smtp = new System.Net.Mail.SmtpClient(SettingsVM.SmtpServer, SettingsVM.SmtpPort);
+                
                 smtp.EnableSsl = SettingsVM.UseSsl;
 
                 if (!(String.IsNullOrEmpty(SettingsVM.Username) && String.IsNullOrEmpty(SettingsVM.Password)))
@@ -65,9 +66,10 @@ namespace MailTools.ViewModels
 
                 var mm = new System.Net.Mail.MailMessage(SettingsVM.FromAddress, MessageVM.ToAddresses, MessageVM.Subject, MessageVM.Body);
                 mm.IsBodyHtml = MessageVM.IsHtmlBody;
-                mm.CC.Add(MessageVM.CarbonCopyAddresses);
-                mm.Bcc.Add(MessageVM.BlindCarbonCopyAddresses);
-                mm.ReplyTo = new System.Net.Mail.MailAddress(SettingsVM.ReplyAddress);
+                
+                if (!String.IsNullOrEmpty(MessageVM.CarbonCopyAddresses)) mm.CC.Add(MessageVM.CarbonCopyAddresses);
+                if (!String.IsNullOrEmpty(MessageVM.BlindCarbonCopyAddresses)) mm.Bcc.Add(MessageVM.BlindCarbonCopyAddresses);
+                if (!String.IsNullOrEmpty(SettingsVM.ReplyAddress)) mm.ReplyTo = new System.Net.Mail.MailAddress(SettingsVM.ReplyAddress);
 
                 smtp.Send(mm);
 
