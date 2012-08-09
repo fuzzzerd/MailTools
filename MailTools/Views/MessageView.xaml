@@ -40,6 +40,11 @@
         </StackPanel>
         
         <TextBlock Grid.Row="5" Text="Body" Margin="4" />
-        <TextBox Grid.Row="5" Text="{Binding Body}" Margin="4,20,4,10" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" />
+        <TextBox Grid.Row="5" 
+                 Text="{Binding Body}" 
+                 AcceptsReturn="True"
+                 HorizontalScrollBarVisibility="Disabled" 
+                 VerticalScrollBarVisibility="Visible" 
+                 Margin="4,20,4,10" />
     </Grid>
 </UserControl>
