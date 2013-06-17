@@ -1,4 +1,7 @@
-Usage under the Microsoft Public License (Ms-PL)
+### Mail Tools 
+Utility for troubleshooting SMTP issues. This application allows you to specify all settings at once and removes any additional applications from the mix. You can use it to isolate Application issues from SMTP Server/Connectivity issues.
+
+### Usage under the Microsoft Public License (Ms-PL)
 
 This application is intended to aid in troubleshooting issues with SMTP servers. It is not intended to identify issues with servers, but it is indented to remove additional variables to prove or disprove that an SMTP server is working.
 
